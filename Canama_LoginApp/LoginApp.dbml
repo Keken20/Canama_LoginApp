@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="information" Class="LoginAppDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-H27FGSQ\SQLEXPRESS;Initial Catalog=information;Integrated Security=True" SettingsObjectName="Canama_LoginApp.Properties.Settings" SettingsPropertyName="informationConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.info" Member="infos">
+    <Type Name="info">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="imagename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_login" Method="sp_login">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_loginResult">
+      <Column Name="Username" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_type" Method="sp_type">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_register" Method="sp_register">
+    <Parameter Name="fname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="usertype" Type="System.Int32" DbType="Int" />
+    <Parameter Name="imagename" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_recogface" Method="sp_recogface">
+    <Parameter Name="imagename" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_recogfaceResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="imagename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
